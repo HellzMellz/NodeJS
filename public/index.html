@@ -1,0 +1,457 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+  <!-- Title -->
+  <title>Банк</title>
+  <style>
+    .cancelbtn {
+      padding: 14px 20px;
+      background-color: #f44336;
+    }
+
+    /* Float cancel and signup buttons and add an equal width */
+    .cancelbtn, .signupbtn {
+      float: left;
+      width: 50%;
+    }
+
+    /* Add padding to container elements */
+    .containerr {
+      padding: 16px;
+    }
+
+    /* The Modal (background) */
+    .modal {
+      display: none; /* Hidden by default */
+      position: fixed; /* Stay in place */
+      z-index: 1; /* Sit on top */
+      left: 0;
+      top: 0;
+      width: 100%; /* Full width */
+      height: 100%; /* Full height */
+      overflow: auto; /* Enable scroll if needed */
+      background-color: #1c184bab;
+      padding-top: 50px;
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto 15% auto; /* 5% from the top, 15% from the bottom and centered */
+      border: 1px solid #888;
+      width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* Style the horizontal ruler */
+    hr {
+      border: 1px solid #f1f1f1;
+      margin-bottom: 25px;
+    }
+
+    /* The Close Button (x) */
+    .closee {
+      position: absolute;
+      right: 35px;
+      top: 15px;
+      font-size: 40px;
+      font-weight: bold;
+      color: #f1f1f1;
+    }
+
+    .closee:hover,
+    .closee:focus {
+      color: #f44336;
+      cursor: pointer;
+    }
+
+    /* Clear floats */
+    .clearfix::after {
+      content: "";
+      clear: both;
+      display: table;
+    }
+
+    /* Change styles for cancel button and signup button on extra small screens */
+    @media screen and (max-width: 990px) {
+      .cancelbtn, .signupbtn {
+        width: 100%;
+      }
+
+    }
+    @media only screen and (min-width: 992px) and (max-width: 1199px) {
+      .modal-content {
+        width: 50%;
+      } }
+    @media only screen and (min-width: 768px) and (max-width: 991px) {
+      .modal-content {
+        width: 80%;
+      } }
+    @media only screen and (max-width: 767px) {
+      .modal-content {
+        width: 50%;
+      } }
+
+  </style>
+  <!-- Favicon -->
+  <link rel="icon" href="img/core-img/favicon.ico">
+
+  <!-- Core Stylesheet -->
+  <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body style="background: rgb(13,16,77); background: radial-gradient(circle at 900px 1060px, rgb(24 24 73) 34%, rgb(125 27 127) 100%);">
+<!-- ##### Preloader ##### -->
+<div id="preloader">
+  <i class="circle-preloader"></i>
+</div>
+
+<!-- ##### Header Area Start ##### -->
+<header class="header-area">
+
+
+
+  <!-- Navbar Area -->
+  <div class="Sokol-main-menu">
+    <div class="classy-nav-container breakpoint-off">
+      <div class="container">
+        <!-- Menu -->
+        <nav class="classy-navbar justify-content-between" id="SokolNav">
+
+          <!-- Logo -->
+          <a class="nav-brand" href="index.html"><img style="width: 175px;" src="img/core-img/logo.png" alt=""></a>
+
+          <!-- Navbar Toggler -->
+          <div class="classy-navbar-toggler">
+            <span class="navbarToggler"><span></span><span></span><span></span></span>
+          </div>
+
+          <!-- Menu -->
+          <div class="classy-menu">
+
+            <!-- close btn -->
+            <div class="classycloseIcon">
+              <div class="cross-wrap"><span class="top"></span><span class="bottom"></span></div>
+            </div>
+
+            <!-- Nav Start -->
+            <div class="classynav">
+              <ul>
+                <li><a class="active" href="#">Ипотека</a></li>
+                <li><a href="#">Валюты</a></li>
+                <li><a href="#">О нас</a></li>
+                <li><a href="#">Связаться с нами</a></li>
+                <li><a onclick="document.getElementById('id02').style.display='block'" href="#">Вход</a></li>
+                <li><a onclick="document.getElementById('id01').style.display='block'" href="#">Регистрация</a></li>
+              </ul>
+            </div>
+            <!-- Nav End -->
+          </div>
+        </nav>
+      </div>
+    </div>
+  </div>
+</header>
+<!-- ##### Header Area End ##### -->
+
+
+
+<div id="id01" class="modal">
+  <span onclick="document.getElementById('id01').style.display='none'" class="closee" title="Close Modal">×</span>
+  <form class="modal-content" action="/register" method="post">
+    <div class="containerr">
+      <h1>Регистрация</h1>
+      <p>Заполните формы для регистрации.</p>
+      <hr>
+      <input type="email" name="email" placeholder="E-mail" value="" required>
+      <hr>
+      <input type="password" placeholder="Введите пароль" name="password" value="" required>
+      <hr>
+      <div class="clearfix">
+        <button type="button" style="height:25px;" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Отмена</button>
+        <button type="submit" name="reg" class="signupbtn">Регистрация</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<div id="id02" class="modal">
+  <span onclick="document.getElementById('id02').style.display='none'" class="closee" title="Close Modal">×</span>
+  <form class="modal-content" action="/login" method="post">
+    <div class="containerr">
+      <h1>Вход</h1>
+      <hr>
+      <input type="email" name="email" placeholder="E-mail" value="" required>
+      <hr>
+      <input type="password" placeholder="Введите пароль" name="password" value="" required>
+      <hr>
+      <div class="clearfix">
+        <button type="button" style="height:25px;" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">Отмена</button>
+        <button type="submit" name="login" class="signupbtn">Вход</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
+<!-- ##### Hero Area Start ##### -->
+
+
+<section class="hero-area">
+  <div class="hero-slides owl-carousel">
+
+    <!-- Single Hero Slide 1 -->
+    <div class="single-hero-slide">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 col-md-7">
+            <div class="hero-slides-content">
+              <h2 data-animation="fadeInUp" data-delay="100ms">Ипотека <span>&#171;Тёплый дом&#187;</span></h2>
+              <h6 data-animation="fadeInUp" data-delay="400ms">Первичный платёж на дом от 3%</h6>
+              <a href="#" class="btn Sokol-btn" data-animation="fadeInUp" data-delay="700ms">Подробнее</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-5">
+            <div class="hero-slides-thumb" data-animation="fadeInUp" data-delay="1000ms">
+              <img src="img/bg-img/bg-2 (2).png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single Hero Slide 2 -->
+    <div class="single-hero-slide">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 col-md-7">
+            <div class="hero-slides-content">
+              <h2 data-animation="fadeInUp" data-delay="100ms">Ипотека <br><span>&#171;Отель МАКСИМА&#187;</span></h2>
+              <h6 data-animation="fadeInUp" data-delay="400ms">Первичный платёж на отель от 15%</h6>
+              <a href="#" class="btn Sokol-btn" data-animation="fadeInUp" data-delay="700ms">Подробнее</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-5">
+            <div class="hero-slides-thumb" data-animation="fadeInUp" data-delay="1000ms">
+              <img src="img/bg-img/bg-2.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single Hero Slide 3 -->
+    <div class="single-hero-slide">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 col-md-7">
+            <div class="hero-slides-content">
+              <h2 data-animation="fadeInUp" data-delay="100ms">Ипотека <br><span>&#171;Бизнес-джет&#187;</span></h2>
+              <h6 data-animation="fadeInUp" data-delay="400ms">Первичный платёж на самолёт от 25%</h6>
+              <a href="#" class="btn Sokol-btn" data-animation="fadeInUp" data-delay="700ms">Подробнее</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-5">
+            <div class="hero-slides-thumb" data-animation="fadeInUp" data-delay="1000ms">
+              <img src="img/bg-img/bg-2.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single Hero Slide 4 -->
+    <div class="single-hero-slide">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 col-md-7">
+            <div class="hero-slides-content">
+              <h2 data-animation="fadeInUp" data-delay="100ms">Ипотека <br><span>&#171;Дракон УЛЬТИМА&#187;</span></h2>
+              <h6 data-animation="fadeInUp" data-delay="400ms">Первичный платёж на космический корабль от 30%</h6>
+              <a href="#" class="btn Sokol-btn" data-animation="fadeInUp" data-delay="700ms">Подробнее</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-5">
+            <div class="hero-slides-thumb" data-animation="fadeInUp" data-delay="1000ms">
+              <img src="img/bg-img/bg-2.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single Hero Slide 6 -->
+    <div class="single-hero-slide">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 col-md-7">
+            <div class="hero-slides-content">
+              <h2 data-animation="fadeInUp" data-delay="100ms">Ипотека <br><span>&#171;А я шото не понял&#187;</span></h2>
+              <h6 data-animation="fadeInUp" data-delay="400ms">Первичный платёж от 150%</h6>
+              <a href="#" class="btn Sokol-btn" data-animation="fadeInUp" data-delay="700ms">Подробнее</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-5">
+            <div class="hero-slides-thumb" data-animation="fadeInUp" data-delay="1000ms">
+              <img src="img/bg-img/bg-2.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Single Hero Slide 7 -->
+    <div class="single-hero-slide">
+      <div class="container h-100">
+        <div class="row h-100 align-items-center">
+          <div class="col-12 col-md-7">
+            <div class="hero-slides-content">
+              <h2 data-animation="fadeInUp" data-delay="100ms">Ипотека <br><span>&#171;Отель МАКСИМА&#187;</span></h2>
+              <h6 data-animation="fadeInUp" data-delay="400ms">Первичный платёж на отель от 15%</h6>
+              <a href="#" class="btn Sokol-btn" data-animation="fadeInUp" data-delay="700ms">Подробнее</a>
+            </div>
+          </div>
+          <div class="col-12 col-md-5">
+            <div class="hero-slides-thumb" data-animation="fadeInUp" data-delay="1000ms">
+              <img src="img/bg-img/bg-2.png" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ##### Hero Area End ##### -->
+
+<!-- ##### Course Area Start ##### -->
+<div class="Sokol-feature-area section-padding-100-0">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-12">
+        <div class="section-heading text-center mx-auto">
+          <h3>Главные <span>правила</span> банка</h3></div>
+      </div>
+    </div>
+
+    <div class="row">
+      <!-- Single Course Area -->
+      <div class="col-12 col-md-6 col-xl-3">
+        <div style="max-height: 77.1%;" class="single-feature-area mb-100 text-center">
+          <i class="icon-safebox"></i>
+          <h3>Быстро &amp; Качественно</h3>
+          <p>Оформление ипотеки за 5 минут. Удобный личный кабинет для отслеживания собственного баланса.</p>
+          <a href="#" class="btn Sokol-btn">Read More</a>
+        </div>
+      </div>
+
+      <!-- Single Course Area -->
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="single-feature-area mb-100 text-center">
+          <i class="icon-bitcoin"></i>
+          <h3>Без поручителей</h3>
+          <p>Нужны ввести только ваш доход и выбрать оптимальные условия.</p>
+          <a href="#" class="btn Sokol-btn">Read More</a>
+        </div>
+      </div>
+
+      <!-- Single Course Area -->
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="single-feature-area mb-100 text-center">
+          <i class="icon-exchange"></i>
+          <h3>Низкие проценты</h3>
+          <p>Самые низкие процентные ставки на любой вид ипотеки.</p>
+          <a href="#" class="btn Sokol-btn">Read More</a>
+        </div>
+      </div>
+
+      <!-- Single Course Area -->
+      <div class="col-12 col-md-6 col-xl-3">
+        <div class="single-feature-area mb-100 text-center">
+          <i class="icon-wallet"></i>
+          <h3>Первый взнос от 1%</h3>
+          <p>Чем меньше ваш кредит, тем ниже ваш первый платёж.</p>
+          <a href="#" class="btn Sokol-btn">Read More</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- ##### Course Area End ##### -->
+
+<!-- ##### About Area Start ##### -->
+<section class="Sokol-about-area">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-12 col-md-6">
+        <div class="about-thumbnail mb-100">
+          <img src="img/bg-img/about.png" alt="">
+        </div>
+      </div>
+      <div style="margin:0 auto;" class="col-12 col-md-6">
+        <div class="about-content mb-100">
+          <div class="section-heading">
+            <h3 style="text-align:center;">Мы являемся <br><span>ЕДИНСТВЕННЫМ </span> частным банком в РБ, который предоставляет ипотечные услуги</h3>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ##### About Area End ##### -->
+
+
+<!-- ##### Footer Area Start ##### -->
+<footer class="footer-area">
+
+  <!-- Bottom Footer Area -->
+  <div style="height: auto;background: linear-gradient(360deg, black, transparent);" class="bottom-footer-area">
+    <div class="container h-100">
+      <div class="row h-100 align-items-center justify-content-center">
+
+
+        <div class="col-12">
+          <div class="footer-social-info">
+            <a href="https://github.com/sokol-forbes"><i class="fa fa-github"></i></a>
+            <a href="https://vk.com/ssokolovsky2001"><i class="fa fa-vk"></i></a>
+            <a href="https://www.instagram.com/sasha.sokol.7/"><i class="fa fa-instagram"></i></a>
+          </div>
+          <p>Copyright &copy;<script>document.write(new Date().getFullYear());</script><br> All rights reserved <br> This website is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://github.com/sokol-forbes" target="_blank">Alexander Sokolovsky</a></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+<!-- ##### Footer Area Start ##### -->
+<script>
+  // Get the modal
+  var modal = document.getElementById('id01');
+  var modal = document.getElementById('id02');
+
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+    if (event.target == modal) {
+      modal.style.display = "none";
+    }
+  }
+</script>
+<!-- ##### All Javascript Script ##### -->
+<!-- jQuery-2.2.4 js -->
+<script src="js/jquery/jquery-2.2.4.min.js"></script>
+<!-- Popper js -->
+<script src="js/bootstrap/popper.min.js"></script>
+<!-- Bootstrap js -->
+<script src="js/bootstrap/bootstrap.min.js"></script>
+<!-- All Plugins js -->
+<script src="js/plugins/plugins.js"></script>
+<!-- Active js -->
+<script src="js/active.js"></script>
+</body>
+
+</html>
